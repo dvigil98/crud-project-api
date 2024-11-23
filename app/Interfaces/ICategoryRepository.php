@@ -10,4 +10,5 @@ interface ICategoryRepository
     public function saveOrUpdate(Category $category);
     public function getById($id);
     public function delete(Category $category);
+    public function search($critery, $value);
 }

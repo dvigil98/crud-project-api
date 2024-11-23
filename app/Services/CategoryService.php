@@ -96,4 +96,15 @@ class CategoryService implements ICategoryService
             return $this->internalServerError([$th->getMessage()]);
         }
     }
+
+    public function searchCategories($critery, $value)
+    {
+        try {
+            $categories = $this->categoryRepository->search($critery, $value);
+
+            return $this->ok(CategoryResource::collection($categories));
+        } catch (\Throwable $th) {
+            return $this->internalServerError([$th->getMessage()]);
+        }
+    }
 }

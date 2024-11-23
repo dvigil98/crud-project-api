@@ -28,4 +28,10 @@ class CategoryRepository implements ICategoryRepository
     {
         return $category->delete();
     }
+
+    public function search($critery, $value)
+    {
+        $categories = Category::where($critery, 'like', "%{$value}%")->get();
+        return $categories;
+    }
 }

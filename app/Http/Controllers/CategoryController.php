@@ -39,4 +39,9 @@ class CategoryController extends Controller
     {
         return $this->categoryService->deleteCategory($id);
     }
+
+    public function search(string $critery, string $value)
+    {
+        return $this->categoryService->searchCategories($critery, $value);
+    }
 }

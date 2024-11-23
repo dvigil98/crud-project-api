@@ -9,4 +9,5 @@ interface ICategoryService
     public function getCategory($id);
     public function updateCategory($data, $id);
     public function deleteCategory($id);
+    public function searchCategories($critery, $value);
 }
