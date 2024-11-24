@@ -9,4 +9,5 @@ interface IProductService
     public function getProduct($id);
     public function updateProduct($data, $id);
     public function deleteProduct($id);
+    public function searchProducts($critery, $value);
 }

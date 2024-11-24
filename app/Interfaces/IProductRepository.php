@@ -10,4 +10,5 @@ interface IProductRepository
     public function saveOrUpdate(Product $product);
     public function getById($id);
     public function delete(Product $product);
+    public function search($critery, $value);
 }

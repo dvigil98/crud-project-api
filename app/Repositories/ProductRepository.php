@@ -28,4 +28,14 @@ class ProductRepository implements IProductRepository
     {
         return $product->delete();
     }
+
+    public function search($critery, $value)
+    {
+        $products = Product::join('categories', 'products.category_id', '=', 'categories.id', 'inner')
+            ->select('products.*')
+            ->whereNull('products.deleted_at')
+            ->whereNull('categories.deleted_at')
+            ->where($critery, 'like', "%{$value}%")->get();
+        return $products;
+    }
 }

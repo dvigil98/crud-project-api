@@ -104,4 +104,15 @@ class ProductService implements IProductService
             return $this->internalServerError([$th->getMessage()]);
         }
     }
+
+    public function searchProducts($critery, $value)
+    {
+        try {
+            $products = $this->productRepository->search($critery, $value);
+
+            return $this->ok(ProductResource::collection($products));
+        } catch (\Throwable $th) {
+            return $this->internalServerError([$th->getMessage()]);
+        }
+    }
 }
